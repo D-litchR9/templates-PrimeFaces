@@ -37,7 +37,7 @@ public class DivisaService {
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			System.out.println("Error al obtener el precio del dólar de la API");
+			System.out.println("Error al obtener el precio del dólar de la API" +e );
 			return 3800; 
 		}
 	}
@@ -68,7 +68,7 @@ public class DivisaService {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Error al obtener el precio de COP de la API.");
+			System.out.println("Error al obtener el precio de COP de la API."+ e);
 			return 4000;
 		}
 	}

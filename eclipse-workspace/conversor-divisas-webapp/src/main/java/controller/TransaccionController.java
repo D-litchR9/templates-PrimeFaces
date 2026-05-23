@@ -19,11 +19,37 @@ public class TransaccionController implements Serializable{
 
 	
 
-	public Transaccion realizarConversioDesdeVista(double montoFormulario, String TipoTrpFormulario){
+	public Transaccion realizarConversionDesdeVista(double montoFormulario, String TipoTrpFormulario){
 		
 		Transaccion ObjTransaccion = ObjDvService.registrarTransaccion(montoFormulario,TipoTrpFormulario);
 		historial.add(ObjTransaccion);
 		return ObjTransaccion;
 	}
+
+
+
+	public DivisaService getObjDvService() {
+		return ObjDvService;
+	}
+
+
+
+	public void setObjDvService(DivisaService objDvService) {
+		ObjDvService = objDvService;
+	}
+
+
+
+	public static List<Transaccion> getHistorial() {
+		return historial;
+	}
+
+
+
+	public static void setHistorial(List<Transaccion> historial) {
+		TransaccionController.historial = historial;
+	}
+	
+	
 
 }

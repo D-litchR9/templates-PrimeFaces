@@ -59,7 +59,7 @@ public class UsuarioController implements Serializable {
     // Acción del botón "Agregar usuario"
     public void agregarNuevoUsuario() {
         try {
-            usuarioService.guardarNuevoUsuario(nuevoId, nuevoNombre);
+            usuarioService.guardarNuevoUsuario(nuevoNombre);
             FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Usuario agregado correctamente"));
             // Limpiar campos después de agregar
@@ -83,7 +83,7 @@ public class UsuarioController implements Serializable {
         
 
         // Buscar usuario por ID (asumiendo que UsuarioService tiene este método)
-       /* Usuario u = usuarioService.buscarPorId(nuevoId);
+       /* Usuario u = usuarioService.obtenerUsuario(nuevoId);
         if (u != null) {
             usuarioSeleccionado = u;
             // Opcional: redirigir a una página de bienvenida o panel del usuario

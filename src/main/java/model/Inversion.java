@@ -7,7 +7,9 @@ import java.io.Serializable;
 @Table(name = "inversion")
 public class Inversion implements Serializable {
 
-    @Id
+    private static final long serialVersionUID = -8828823127021167882L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -28,7 +30,7 @@ public class Inversion implements Serializable {
     @Column(name = "ganancia_neta")
     private double gananciaNeta;
     
-    public Inversion() {}
+    
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)

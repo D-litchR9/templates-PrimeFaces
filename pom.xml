@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.udistrital</groupId>
+    <artifactId>calculadora-cdt-java-webapp</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+
+    <name>MiApp Web</name>
+    <description>Aplicación Java web con PrimeFaces, JSF, CDI y Tomcat</description>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Versiones de dependencias corregidas -->
+        
+        <primefaces.version>14.0.0</primefaces.version>
+        <weld.version>5.1.2.Final</weld.version>
+        <hibernate.version>6.5.2.Final</hibernate.version>
+        <mysql.version>8.4.0</mysql.version>
+    </properties>
+
+    <dependencies>
+        
+
+        <!-- Implementación de JSF (Mojarra) requerida para Tomcat -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.faces</artifactId>
+            <version>4.0.5</version>
+        </dependency>
+
+        <!-- PrimeFaces para Jakarta EE -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces.version}</version>
+            <classifier>jakarta</classifier>
+        </dependency>
+
+        <!-- Weld - implementación de CDI necesaria en Tomcat estándar -->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>${weld.version}</version>
+        </dependency>
+
+        <!-- Hibernate como proveedor de JPA (ORM) -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- Driver de Base de Datos MySQL -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        
+        <dependency>
+		    <groupId>jakarta.servlet</groupId>
+		    <artifactId>jakarta.servlet-api</artifactId>
+		    <version>6.0.0</version>
+		    <scope>provided</scope>
+		</dependency>
+    </dependencies>
+
+    <build>
+        <finalName>Calculadora-CDT</finalName>
+        <plugins>
+            <!-- Plugin de compilación -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin de empaquetado WAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
